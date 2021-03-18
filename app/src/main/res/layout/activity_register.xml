@@ -10,8 +10,170 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="110dp"
+            android:text="Daftar"
+            android:textColor="#FF5757"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="laporin"
+            android:textSize="30dp"
+            android:textColor="#FF5757"
+            android:layout_marginLeft="22dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutnik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#FF5757"
+            android:layout_marginTop="75dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FF5757"
+                android:backgroundTint="#FF5757"
+                android:ems="10"
+                android:textSize="17sp"
+                android:textColor="#FF5757"
+                android:inputType="number"
+                android:layout_marginTop="25dp"
+                android:hint="NIK"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutnama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#FF5757">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FF5757"
+                android:backgroundTint="#FF5757"
+                android:ems="10"
+                android:textSize="17sp"
+                android:textColor="#FF5757"
+                android:inputType="textPersonName"
+                android:layout_marginTop="30dp"
+                android:hint="Nama"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layouttelp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#FF5757">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_telp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FF5757"
+                android:backgroundTint="#FF5757"
+                android:ems="10"
+                android:textSize="17sp"
+                android:textColor="#FF5757"
+                android:inputType="phone"
+                android:layout_marginTop="30dp"
+                android:hint="No Telepon"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutpengguna"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#FF5757">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_pengguna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FF5757"
+                android:backgroundTint="#FF5757"
+                android:ems="10"
+                android:textSize="17sp"
+                android:textColor="#FF5757"
+                android:inputType="textPersonName"
+                android:layout_marginTop="30dp"
+                android:hint="Nama pengguna"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#FF5757"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#FF5757">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FF5757"
+                android:backgroundTint="#FF5757"
+                android:ems="10"
+                android:textSize="17sp"
+                android:textColor="@color/colorPrimary"
+                android:inputType="textPassword"
+                android:layout_marginTop="30dp"
+                android:hint="Kata Sandi"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnDaftar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:text="daftar"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_daftar"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sudah punya akun?"
+            android:textColor="#393939"/>
+
+        <TextView
+            android:id="@+id/btnmasuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="masuk"
+            android:layout_marginLeft="10dp"
+            android:textColor="#FF5757"
+            android:textStyle="bold"/>
+
 
     </LinearLayout>
 

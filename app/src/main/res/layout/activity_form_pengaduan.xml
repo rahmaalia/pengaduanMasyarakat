@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormPengaduanActivity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_lapor"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Pelaporan"
+        app:titleTextColor="#ffffff"
+        android:background="@color/colorAccent"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.Title.Inverse"
+                android:text="Laporanku"
+                android:textColor="#fff"
+                android:layout_toRightOf="@id/back"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="15dp"/>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:id="@+id/hari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senin,"
+            android:textSize="27sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/colorAccent"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21"
+                android:textColor="#686868"
+                android:textSize="25sp"
+                />
+
+            <TextView
+                android:id="@+id/bulan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="04"
+                android:textColor="#686868"
+
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/tahun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:textColor="#686868"
+                android:text="2021"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/nikl"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Nik"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/round_edt"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:padding="13dp"/>
+
+        <TextView
+            android:id="@+id/namaLengkap"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Nama Lengkap"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/round_edt"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:padding="13dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_laporan"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/colorAccent"
+            android:layout_marginTop="15dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_laporanL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Isi Laporan"
+                android:textSize="18sp"
+                android:inputType="textMultiLine"
+                android:textColor="@color/colorAccent"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tambahPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Tambahkan foto"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:background="@drawable/round_edt"
+            android:ems="10"
+            android:textColorHint="#686868"
+            android:padding="13dp"
+            android:layout_marginTop="15dp"
+            />
+
+        <ImageView
+            android:id="@+id/foto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnKirim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="kirim"
+            android:layout_below="@+id/RbJnsKelamin"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button_login"
+            android:textColor="#FFFFFF"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
