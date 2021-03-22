@@ -72,7 +72,7 @@ public class ProsesFragment extends Fragment {
 
             @Override
             public void onFailure(Call<M_Proses> call, Throwable t) {
-                Toast.makeText(getActivity(),"gagal",Toast.LENGTH_SHORT).show();
+//                tToast.makeText(ProsesFragment.this."gagal",Toast.LENGTH_SHORT).show();
             }
         });
 

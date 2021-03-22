@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_homeP"
         android:icon="@mipmap/home_icon"
         android:title="Beranda"
-        android:fontFamily="@font/poppins"></item>
-
-
-    <item
-        android:id="@+id/nav_file"
-        android:icon="@mipmap/file_icon"
-        android:title="Laporanku"
         android:fontFamily="@font/poppins"/>
 
+
+
     <item
-        android:id="@+id/nav_profil"
+        android:id="@+id/nav_profilP"
         android:icon="@mipmap/user_icon"
         android:title="Profil"
         android:fontFamily="@font/poppins"/>
+
 </menu>

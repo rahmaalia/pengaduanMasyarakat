@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TabActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -13,10 +11,10 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_home"
+            android:id="@+id/toolbar_homeP"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Laporanku"
+            app:title="Beranda"
             app:titleTextColor="#ffffff"
             android:background="@color/colorAccent"
             android:fontFamily="@font/poppins"/>
@@ -26,21 +24,20 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            app:tabTextColor="#ffffff"
-            app:tabSelectedTextColor="#FFFFFF"
-            app:tabIndicatorColor="@color/colorPrimary"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabsP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        app:tabTextColor="#ffffff"
+        app:tabSelectedTextColor="#FFFFFF"
+        app:tabIndicatorColor="@color/colorPrimary" />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+        android:id="@+id/view_pagerP"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tabs"
-         />
-
+        android:layout_below="@+id/tabsP"
+        />
 
 </LinearLayout>

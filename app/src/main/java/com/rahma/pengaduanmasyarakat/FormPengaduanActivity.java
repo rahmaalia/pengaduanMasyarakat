@@ -17,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.FileUtils;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -32,6 +33,9 @@ import com.rahma.pengaduanmasyarakat.apihelper.BaseApiService;
 import com.rahma.pengaduanmasyarakat.apihelper.RetrofitClient;
 import com.rahma.pengaduanmasyarakat.fragment.LaporankuFragment;
 import com.rahma.pengaduanmasyarakat.sharedpref.SharedPrefManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -100,14 +104,22 @@ public class FormPengaduanActivity extends AppCompatActivity {
 
         status = "proses";
         hari();
-        submit();
+
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requestPengaduan();
+                uploadImage();
+
+            }
+        });
+
         tambahPoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectImage(mContext);
             }
-
-
         });
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -121,41 +133,42 @@ public class FormPengaduanActivity extends AppCompatActivity {
 
     }
 
-    private void submit() {
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+    private void requestPengaduan() {
+        mApiService.inputLaporan(Date,
+                nik,
+                laporan.getText().toString(),
+                file.getName()
+        ).enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onClick(View view) {
-            mApiService.inputLaporan(Date,nik,laporan.getText().toString(),file.getName()).
-                    enqueue(new retrofit2.Callback<ResponseBody>() {
-                        @Override
-                        public void onResponse(retrofit2.Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
-                            if (response.isSuccessful()) {
-                                Toast.makeText(mContext, "berhasil", Toast.LENGTH_SHORT).show();
-                                Intent intent=new Intent(FormPengaduanActivity.this,BerandaActivity.class);
-                                startActivity(intent);
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                    if (jsonRESULTS.getString("status").equals("true")){
+                        Toast.makeText(mContext, "BERHASIL LAPOR", Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(FormPengaduanActivity.this,BerandaActivity .class);
+                        startActivity(intent);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
-                            } else {
-                                Toast.makeText(mContext, "gagal", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(retrofit2.Call<ResponseBody> call, Throwable t) {
-
-                        }
-                    });
-                uploadImage();
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                Toast.makeText(mContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
-
     private void selectImage(Context mContext) {
         final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setTitle("Tambah Foto");
+        builder.setTitle("Add Photo");
 
         builder.setItems(options, new DialogInterface.OnClickListener() {
 
@@ -165,10 +178,12 @@ public class FormPengaduanActivity extends AppCompatActivity {
                 if (options[item].equals("Take Photo")) {
                     Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(takePicture, 0);
+                    imageView.setVisibility(view.VISIBLE);
 
                 } else if (options[item].equals("Choose from Gallery")) {
                     Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     startActivityForResult(pickPhoto , 1);
+                    imageView.setVisibility(view.VISIBLE);
 
                 } else if (options[item].equals("Cancel")) {
                     dialog.dismiss();
@@ -179,9 +194,10 @@ public class FormPengaduanActivity extends AppCompatActivity {
 
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 
+    @Override
+    public void  onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != RESULT_CANCELED) {
             switch (requestCode) {
@@ -212,16 +228,20 @@ public class FormPengaduanActivity extends AppCompatActivity {
                                 cursor.close();
                             }
                         }
+
                     }
                     break;
             }
         }
+
     }
+
+
 
     private void uploadImage() {
 
-        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"),file);
-        MultipartBody.Part parts = MultipartBody.Part.createFormData("foto", file.getName(),requestBody);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part parts = MultipartBody.Part.createFormData("image", file.getName(), requestBody);
 
         BaseApiService uploadApis = RetrofitClient.getClient(RetrofitClient.BASE_URL_API).create(BaseApiService.class);
         Call<RequestBody> call = uploadApis.uploadFoto(parts);
@@ -242,18 +262,18 @@ public class FormPengaduanActivity extends AppCompatActivity {
         });
     }
 
-    private Uri getImageUri(Context inContext, Bitmap inImage) {
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(),inImage,  "IMG_" + Calendar.getInstance().getTime(), null);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "IMG_" + Calendar.getInstance().getTime(), null);
         return Uri.parse(path);
     }
 
-    private String getRealPathFromURI(Uri uri) {
+    public String getRealPathFromURI(Uri uri) {
         String path = "";
-        if (mContext.getContentResolver() != null){
+        if (mContext.getContentResolver() != null) {
             Cursor cursor = mContext.getContentResolver().query(uri, null, null, null, null);
-            if (cursor != null){
+            if (cursor != null) {
                 cursor.moveToFirst();
                 int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
                 path = cursor.getString(idx);
@@ -262,6 +282,7 @@ public class FormPengaduanActivity extends AppCompatActivity {
         }
         return path;
     }
+
 
 
 

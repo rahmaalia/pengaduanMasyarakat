@@ -24,14 +24,16 @@
             android:text="Daftar"
             android:textColor="#FF5757"
             android:textSize="50sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="laporin"
             android:textSize="30dp"
             android:textColor="#FF5757"
-            android:layout_marginLeft="22dp" />
+            android:layout_marginLeft="22dp"
+            android:fontFamily="@font/poppins"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutnik"
@@ -51,7 +53,8 @@
                 android:textColor="#FF5757"
                 android:inputType="number"
                 android:layout_marginTop="25dp"
-                android:hint="NIK"/>
+                android:hint="NIK"
+                android:fontFamily="@font/poppins"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,7 +75,8 @@
                 android:textColor="#FF5757"
                 android:inputType="textPersonName"
                 android:layout_marginTop="30dp"
-                android:hint="Nama"/>
+                android:hint="Nama"
+                android:fontFamily="@font/poppins"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,7 +97,8 @@
                 android:textColor="#FF5757"
                 android:inputType="phone"
                 android:layout_marginTop="30dp"
-                android:hint="No Telepon"/>
+                android:hint="No Telepon"
+                android:fontFamily="@font/poppins"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,7 +119,8 @@
                 android:textColor="#FF5757"
                 android:inputType="textPersonName"
                 android:layout_marginTop="30dp"
-                android:hint="Nama pengguna"/>
+                android:hint="Nama pengguna"
+                android:fontFamily="@font/poppins"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,7 +143,8 @@
                 android:textColor="@color/colorPrimary"
                 android:inputType="textPassword"
                 android:layout_marginTop="30dp"
-                android:hint="Kata Sandi"/>
+                android:hint="Kata Sandi"
+                android:fontFamily="@font/poppins"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -148,7 +155,8 @@
             android:layout_marginTop="30dp"
             android:text="daftar"
             android:textColor="#ffffff"
-            android:background="@drawable/button_daftar"/>
+            android:background="@drawable/button_daftar"
+            android:fontFamily="@font/poppins"/>
 
     </LinearLayout>
 
@@ -163,7 +171,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sudah punya akun?"
-            android:textColor="#393939"/>
+            android:textColor="#393939"
+            android:fontFamily="@font/poppins"/>
 
         <TextView
             android:id="@+id/btnmasuk"
@@ -172,7 +181,8 @@
             android:text="masuk"
             android:layout_marginLeft="10dp"
             android:textColor="#FF5757"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins"/>
 
 
     </LinearLayout>

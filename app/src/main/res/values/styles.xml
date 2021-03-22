@@ -14,7 +14,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 
         <item name="colorControlActivated">@color/colorPrimaryDark</item>
-        <item name="colorControlNormal">#00574B</item>
+        <item name="colorControlNormal">@color/colorPrimary</item>
 
 
     </style>

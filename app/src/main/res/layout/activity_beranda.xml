@@ -17,7 +17,7 @@
                 android:id="@+id/fragment_wadah"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_above="@id/navigasi"></FrameLayout>
+                android:layout_above="@id/navigasi"/>
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/navigasi"

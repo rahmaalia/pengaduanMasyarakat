@@ -1,6 +1,8 @@
 package com.rahma.pengaduanmasyarakat.apihelper;
 
+import com.rahma.pengaduanmasyarakat.model_entity.M_Beranda;
 import com.rahma.pengaduanmasyarakat.model_entity.M_Proses;
+import com.rahma.pengaduanmasyarakat.model_entity.M_ProsesPetugas;
 import com.rahma.pengaduanmasyarakat.model_entity.M_Selesai;
 
 import okhttp3.MultipartBody;
@@ -38,7 +40,7 @@ public interface BaseApiService {
 
 
     @Multipart
-    @POST("addFoto")
+    @POST("tambahFoto")
     Call<RequestBody> uploadFoto(@Part MultipartBody.Part part);
 
     @GET("getProses/{nik}")
@@ -46,4 +48,13 @@ public interface BaseApiService {
 
     @GET("getSelesai/{nik}")
     Call<M_Selesai> getSelesai (@Path("nik") String nik);
+
+    @GET("getSemua")
+    Call<M_Beranda> getSemua ();
+
+    @GET("delete/{id}")
+    Call<ResponseBody> deletePengaduan(@Path("id") int id_pengaduan);
+
+    @GET("getProsesPetugas")
+    Call<M_ProsesPetugas> getProsesPetugas ();
 }
