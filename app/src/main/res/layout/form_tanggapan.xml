@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormTanggapan"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_lapor"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Pelaporan"
+        app:titleTextColor="#ffffff"
+        android:background="@color/colorAccent"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.Title.Inverse"
+                android:text="Tanggapan"
+                android:textColor="#fff"
+                android:layout_toRightOf="@id/backT"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins"/>
+
+            <ImageView
+                android:id="@+id/backT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="15dp"/>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_tanggapan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/colorAccent"
+        android:layout_marginTop="15dp"
+        android:layout_margin="15dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_tanggapan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Isi tanggapan"
+            android:textSize="18sp"
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="@font/poppins"
+            android:layout_marginLeft="5dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <Button
+            android:id="@+id/btnTanggapan"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="kirim tanggapan"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins"
+            android:background="@drawable/button_daftar"
+            android:textColor="#ffffff"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>

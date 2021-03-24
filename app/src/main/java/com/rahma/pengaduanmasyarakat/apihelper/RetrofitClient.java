@@ -9,6 +9,7 @@ public class RetrofitClient {
 
     private static Retrofit retrofit = null;
     public static final String BASE_URL_API = "http://192.168.1.4:80/api/";
+    public static final String BASE_URL_FOTO = "http://192.168.1.4:80/foto/";
 
     public static Retrofit getClient(String baseUrl){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();

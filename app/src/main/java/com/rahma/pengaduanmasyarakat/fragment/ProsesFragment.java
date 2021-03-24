@@ -3,6 +3,7 @@ package com.rahma.pengaduanmasyarakat.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.rahma.pengaduanmasyarakat.Adapter.ProsesAdapter;
 import com.rahma.pengaduanmasyarakat.FormPengaduanActivity;
+
 import com.rahma.pengaduanmasyarakat.R;
 import com.rahma.pengaduanmasyarakat.apihelper.BaseApiService;
 import com.rahma.pengaduanmasyarakat.apihelper.RetrofitClient;
@@ -47,7 +49,8 @@ public class ProsesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_proses, container, false);
         mApiService = RetrofitClient.getClient(RetrofitClient.BASE_URL_API).create(BaseApiService.class);
-
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         mContext = getContext();
         sharedPrefManager = new SharedPrefManager(mContext);
         nik = sharedPrefManager.getSpNik();

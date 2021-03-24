@@ -3,6 +3,9 @@ package com.rahma.pengaduanmasyarakat.Adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.rahma.pengaduanmasyarakat.DetailBeranda;
 import com.rahma.pengaduanmasyarakat.Detail_proses;
 import com.rahma.pengaduanmasyarakat.R;
+import com.rahma.pengaduanmasyarakat.apihelper.RetrofitClient;
 import com.rahma.pengaduanmasyarakat.model_entity.E_Beranda;
 import com.rahma.pengaduanmasyarakat.model_entity.E_Proses;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.BerandaViewHolder> {
@@ -44,13 +50,25 @@ public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.BerandaV
 
     @Override
     public void onBindViewHolder(@NonNull BerandaAdapter.BerandaViewHolder holder, int position) {
+
+
+
         eBeranda = berandaList.get(position);
         holder.tgl.setText(eBeranda.getTglPengaduan());
         holder.laporan.setText(eBeranda.getIsiLaporan());
         holder.nama.setText(eBeranda.getNama());
         holder.status.setText(eBeranda.getStatus());
 
-        statuss= eBeranda.getStatus();
+        Bitmap setFoto=null;
+        String foto;
+        foto = eBeranda.getFoto();
+        try {
+            URL url = new URL(RetrofitClient.BASE_URL_FOTO + foto);
+            setFoto = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+        }  catch (IOException e) {
+            e.printStackTrace();
+        }
+        holder.fotoo.setImageBitmap(setFoto);
 
     }
 
@@ -61,13 +79,13 @@ public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.BerandaV
 
     public class BerandaViewHolder extends RecyclerView.ViewHolder {
         public final TextView tgl,laporan,nama,status;
-        public ImageView foto;
+        public ImageView fotoo;
         @SuppressLint("ResourceAsColor")
         public BerandaViewHolder(@NonNull View itemView) {
             super(itemView);
             tgl = itemView.findViewById(R.id.tglb);
             laporan = itemView.findViewById(R.id.tv_detailb);
-            foto = itemView.findViewById(R.id.imageB);
+            fotoo = itemView.findViewById(R.id.imageB);
             nama = itemView.findViewById(R.id.namaB);
             status = itemView.findViewById(R.id.status);
             cardView = itemView.findViewById(R.id.cvBeranda);
@@ -77,6 +95,7 @@ public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.BerandaV
                     int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION){
                         Intent i = new Intent(mContext, DetailBeranda.class);
+                        i.putExtra("id",berandaList.get(position).getIdPengaduan());
                         i.putExtra("tgl", berandaList.get(position).getTglPengaduan());
                         i.putExtra("laporan", berandaList.get(position).getIsiLaporan());
                         i.putExtra("nama", berandaList.get(position).getNama());
@@ -85,9 +104,8 @@ public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.BerandaV
                 }
             });
 
-            if (statuss == "selesai"){
-                status.setBackgroundResource(R.color.colorPrimary);
-            }
+
+
         }
     }
 }

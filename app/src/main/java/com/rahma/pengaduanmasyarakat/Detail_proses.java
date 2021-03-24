@@ -2,19 +2,29 @@ package com.rahma.pengaduanmasyarakat;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.rahma.pengaduanmasyarakat.Adapter.ProsesAdapter;
+import com.rahma.pengaduanmasyarakat.Adapter.TanggapanSelesaiAdapter;
 import com.rahma.pengaduanmasyarakat.apihelper.BaseApiService;
 import com.rahma.pengaduanmasyarakat.apihelper.RetrofitClient;
+import com.rahma.pengaduanmasyarakat.model_entity.E_Tanggapan;
+import com.rahma.pengaduanmasyarakat.model_entity.M_Tanggapan;
 import com.rahma.pengaduanmasyarakat.sharedpref.SharedPrefManager;
+
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -27,7 +37,10 @@ public class Detail_proses extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     Context mContext;
     ImageView imageView,exit,dalete;
-    int id_pengaduan;
+    int id_pengaduan,pengaduan_id;
+    List<E_Tanggapan> tanggapans;
+    RecyclerView rvTanggapan;
+    TanggapanSelesaiAdapter tanggapanSelesaiAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +56,30 @@ public class Detail_proses extends AppCompatActivity {
         imageView = findViewById(R.id.imageDetail);
         exit = findViewById(R.id.exit);
         dalete = findViewById(R.id.delete);
+        rvTanggapan = findViewById(R.id.rv_tanggapan);
 
         final Intent intent = getIntent();
         tanggal.setText(getIntent().getExtras().getString("tgl"));
         laporan.setText(getIntent().getExtras().getString("laporan"));
         id_pengaduan=intent.getIntExtra("id",1);
+        pengaduan_id = id_pengaduan;
+//        imageView.setImageBitmap((Bitmap) getIntent().getExtras().get("foto"));
+        
+        getTanggapan();
+        mApiInterface.getTanggapan(pengaduan_id).enqueue(new Callback<M_Tanggapan>() {
+            @Override
+            public void onResponse(Call<M_Tanggapan> call, Response<M_Tanggapan> response) {
+                tanggapans = response.body().getData();
+                tanggapanSelesaiAdapter = new TanggapanSelesaiAdapter(mContext,tanggapans);
+                rvTanggapan.setAdapter(tanggapanSelesaiAdapter);
+                tanggapanSelesaiAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<M_Tanggapan> call, Throwable t) {
+
+            }
+        });
 
         dalete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,5 +130,11 @@ public class Detail_proses extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void getTanggapan() {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mContext,RecyclerView.VERTICAL,false);
+        rvTanggapan.setLayoutManager(layoutManager);
+        rvTanggapan.setItemAnimator(new DefaultItemAnimator());
     }
 }

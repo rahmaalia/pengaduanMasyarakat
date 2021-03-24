@@ -22,17 +22,7 @@
 
 
 
-            <TextView
-                android:id="@+id/namaB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nama"
-                android:textSize="20sp"
-                android:layout_margin="2dp"
-                android:layout_marginLeft="5dp"
-                android:textColor="@color/colorAccent"
-                android:paddingLeft="5dp"
-                android:fontFamily="@font/poppins"/>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -43,11 +33,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tanggal"
-                    android:textSize="15sp"
-                    android:layout_margin="2dp"
+                    android:textSize="16sp"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/colorAccent"
-                    android:padding="5dp"
                     android:fontFamily="@font/poppins"/>
 
                 <TextView
@@ -66,18 +55,32 @@
 
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorPrimary">
+                <TextView
+                    android:id="@+id/namaB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama"
+                    android:textSize="17dp"
+                    android:layout_margin="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#ffffff"
+                    android:paddingLeft="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
 
             <ImageView
                 android:id="@+id/imageB"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/image"/>
+                />
 
 
 

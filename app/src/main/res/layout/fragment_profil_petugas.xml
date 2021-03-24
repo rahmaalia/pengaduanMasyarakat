@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.ProfilPetugasFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/coralbg">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_home"
@@ -16,19 +17,119 @@
         android:background="@color/colorAccent"
         android:fontFamily="@font/poppins"/>
 
-    <RelativeLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/bt_keluarPetugas"
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profil"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            app:civ_border_width="4dp"
+            app:civ_border_color="#ffffff"
+            android:src="@drawable/add_photo"
+            android:layout_marginBottom="10dp">
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="130dp"
+            android:layout_height="2dp"
+            android:background="#ffffff"/>
+        <TextView
+            android:id="@+id/tvNamaP"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="keluar"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:layout_alignParentBottom="true"
+            android:textColor="#ffffff"
+            android:textSize="25dp"
+            android:text="Nama"
             android:fontFamily="@font/poppins"/>
-    </RelativeLayout>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="vertical"
+        android:layout_marginTop="60dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="345dp"
+            android:layout_height="60dp"
+            app:cardBackgroundColor="#fff"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="20dp"
+            android:layout_alignBottom="@+id/cvnotelp">
+
+            <TextView
+                android:id="@+id/usernamePP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="username"
+                android:textAlignment="center"
+                android:drawableLeft="@drawable/username"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:fontFamily="@font/poppins"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvnotelp"
+            android:layout_width="345dp"
+            android:layout_height="60dp"
+            app:cardBackgroundColor="#fff"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:id="@+id/no_telpP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="no telp"
+                android:textAlignment="center"
+                android:drawableLeft="@drawable/phone"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:fontFamily="@font/poppins"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/bt_keluarPetugas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:text="keluar"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/poppins"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
 
 </LinearLayout>

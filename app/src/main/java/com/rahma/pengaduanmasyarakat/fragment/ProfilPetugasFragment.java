@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.rahma.pengaduanmasyarakat.LoginActivity;
 import com.rahma.pengaduanmasyarakat.R;
@@ -23,12 +24,13 @@ public class ProfilPetugasFragment extends Fragment {
     SharedPrefManager sharedPrefManager;
     Context mContext;
     Button bt_keluar;
+    TextView TvResultNama,resultNotelp,resultUsername;
+    String namaa,nohp,username;
     public static ProfilPetugasFragment pf;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profil_petugas, container, false);
 
         mContext = getContext();
@@ -36,7 +38,15 @@ public class ProfilPetugasFragment extends Fragment {
 
         pf = this;
 
+        TvResultNama = view.findViewById(R.id.tvNamaP);
+        resultUsername = view.findViewById(R.id.usernamePP);
+        resultNotelp = view.findViewById(R.id.no_telpP);
         bt_keluar = (Button) view.findViewById(R.id.bt_keluarPetugas);
+
+        TvResultNama.setText(sharedPrefManager.getSpNama());
+        resultUsername.setText(sharedPrefManager.getSpUsername());
+        resultNotelp.setText(sharedPrefManager.getSpTelp());
+
         bt_keluar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

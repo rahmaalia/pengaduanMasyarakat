@@ -2,6 +2,8 @@ package com.rahma.pengaduanmasyarakat.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rahma.pengaduanmasyarakat.Detail_proses;
 import com.rahma.pengaduanmasyarakat.R;
+import com.rahma.pengaduanmasyarakat.apihelper.RetrofitClient;
 import com.rahma.pengaduanmasyarakat.model_entity.E_Proses;
 import com.rahma.pengaduanmasyarakat.model_entity.E_Selesai;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public class SelesaiAdapter extends RecyclerView.Adapter<SelesaiAdapter.SelesaiViewHolder>{
@@ -43,6 +48,16 @@ public class SelesaiAdapter extends RecyclerView.Adapter<SelesaiAdapter.SelesaiV
         eSelesai = selesaiList.get(position);
         holder.tgl.setText(eSelesai.getTglPengaduan());
         holder.laporan.setText(eSelesai.getIsiLaporan());
+        Bitmap setFoto=null;
+        String foto;
+        foto = eSelesai.getFoto();
+        try {
+            URL url = new URL(RetrofitClient.BASE_URL_FOTO + foto);
+            setFoto = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+        }  catch (IOException e) {
+            e.printStackTrace();
+        }
+        holder.fotoo.setImageBitmap(setFoto);
     }
 
     @Override
@@ -52,13 +67,13 @@ public class SelesaiAdapter extends RecyclerView.Adapter<SelesaiAdapter.SelesaiV
 
     public class SelesaiViewHolder extends RecyclerView.ViewHolder {
         public final TextView tgl, laporan;
-        ImageView foto;
+        ImageView fotoo;
 
         public SelesaiViewHolder(@NonNull View itemView) {
             super(itemView);
             tgl = itemView.findViewById(R.id.tgl);
             laporan = itemView.findViewById(R.id.tv_detail);
-            foto = itemView.findViewById(R.id.imageL);
+            fotoo = itemView.findViewById(R.id.imageL);
             cardView = itemView.findViewById(R.id.cvLaporan);
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -68,6 +83,7 @@ public class SelesaiAdapter extends RecyclerView.Adapter<SelesaiAdapter.SelesaiV
                         Intent i = new Intent(mContext, Detail_proses.class);
                         i.putExtra("tgl", selesaiList.get(position).getTglPengaduan());
                         i.putExtra("laporan", selesaiList.get(position).getIsiLaporan());
+                        i.putExtra("id",selesaiList.get(position).getIdPengaduan());
                         mContext.startActivity(i);
                     }
 

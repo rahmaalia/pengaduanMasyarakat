@@ -11,6 +11,7 @@ public class SharedPrefManager {
     public static final String SP_NIK="spNik";
 
     public static final int SP_IDUSER = 1;
+    public static final int SP_IDPETUGAS = 1;
     public static final String SP_LOGIN="spLogin";
     public static final String SP_LOGIN_PETUGAS="spLoginPetugas";
 
@@ -54,6 +55,9 @@ public class SharedPrefManager {
     }
     public int getSpIduser(){
         return sp.getInt(String.valueOf(SP_IDUSER),2);
+    }
+    public int getSpIdpetugas(){
+        return sp.getInt(String.valueOf(SP_IDPETUGAS),1);
     }
 
 }

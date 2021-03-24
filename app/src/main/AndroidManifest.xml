@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetailProsesPetugas"></activity>
+        <activity android:name=".FormTanggapan"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".DetailProsesPetugas"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DetailBeranda"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -24,9 +28,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".FormPengaduanActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar"
-            tools:targetApi="q" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BerandaActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -46,11 +48,11 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

@@ -1,9 +1,7 @@
 package com.rahma.pengaduanmasyarakat;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,27 +9,19 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.FileUtils;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.rahma.pengaduanmasyarakat.apihelper.BaseApiService;
 import com.rahma.pengaduanmasyarakat.apihelper.RetrofitClient;
-import com.rahma.pengaduanmasyarakat.fragment.LaporankuFragment;
 import com.rahma.pengaduanmasyarakat.sharedpref.SharedPrefManager;
 
 import org.json.JSONException;
@@ -77,7 +67,7 @@ public class FormPengaduanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_pengaduan);
+        setContentView(R.layout.activity_form_pengaduann);
 
         sharedPrefManager = new SharedPrefManager(this);
         mContext = this;
@@ -180,6 +170,7 @@ public class FormPengaduanActivity extends AppCompatActivity {
                     startActivityForResult(takePicture, 0);
                     imageView.setVisibility(view.VISIBLE);
 
+
                 } else if (options[item].equals("Choose from Gallery")) {
                     Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     startActivityForResult(pickPhoto , 1);
@@ -207,6 +198,7 @@ public class FormPengaduanActivity extends AppCompatActivity {
                         imageView.setImageBitmap(bitmap);
                         Uri tempUri = getImageUri(mContext.getApplicationContext(), bitmap);
                         file = new File(getRealPathFromURI(tempUri));
+                        tambahPoto.setText(file.getName());
                     }
 
                     break;
@@ -219,6 +211,7 @@ public class FormPengaduanActivity extends AppCompatActivity {
                         if (filePath != null) {
                             Cursor cursor = mContext.getContentResolver().query(filePath,
                                     filePathColumn, null, null, null);
+                            tambahPoto.setText(file.getName());
                             if (cursor != null) {
                                 cursor.moveToFirst();
 

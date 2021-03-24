@@ -4,6 +4,8 @@ import com.rahma.pengaduanmasyarakat.model_entity.M_Beranda;
 import com.rahma.pengaduanmasyarakat.model_entity.M_Proses;
 import com.rahma.pengaduanmasyarakat.model_entity.M_ProsesPetugas;
 import com.rahma.pengaduanmasyarakat.model_entity.M_Selesai;
+import com.rahma.pengaduanmasyarakat.model_entity.M_SelesaiPetugas;
+import com.rahma.pengaduanmasyarakat.model_entity.M_Tanggapan;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -43,6 +45,13 @@ public interface BaseApiService {
     @POST("tambahFoto")
     Call<RequestBody> uploadFoto(@Part MultipartBody.Part part);
 
+    @FormUrlEncoded
+    @POST("tanggapan")
+    Call<ResponseBody> inputTanggapan(@Field("id_pengaduan") int id_pengaduan,
+                                      @Field("tgl_tanggapan") String tgl_tanggapan,
+                                      @Field("tanggapan") String tanggapan,
+                                      @Field("id_petugas") int id_petugas);
+
     @GET("getProses/{nik}")
     Call<M_Proses> getProses (@Path("nik") String nik);
 
@@ -57,4 +66,10 @@ public interface BaseApiService {
 
     @GET("getProsesPetugas")
     Call<M_ProsesPetugas> getProsesPetugas ();
+
+    @GET("getSelesaiPetugas")
+    Call<M_SelesaiPetugas> getSelesaiPetugas ();
+
+    @GET("getTanggapan/{id}")
+    Call<M_Tanggapan> getTanggapan (@Path("id") int id_pengaduan);
 }

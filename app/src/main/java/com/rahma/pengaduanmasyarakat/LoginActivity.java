@@ -117,7 +117,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                                                 if (jsonRESULT.getJSONObject("data").getString("role_id").equals("1")){
                                                     Intent intent=new Intent(LoginActivity.this,PetugasActivity.class);
-                                                    startActivity(intent);
+                                                    int petugas_id = jsonRESULT.getJSONObject("data").getInt("id_petugas");
+                                                    String namaP = jsonRESULT.getJSONObject("data").getString("nama_petugas");
+                                                    String notelpP = jsonRESULT.getJSONObject("data").getString("telp");
+                                                    String usernameP = jsonRESULT.getJSONObject("data").getString("username");
+
+                                                    sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDUSER), petugas_id);
+                                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, namaP);
+                                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_TELP, notelpP);
+                                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_USERNAME, usernameP);
                                                     sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_LOGIN_PETUGAS, true);
                                                     startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                                     finish();
