@@ -32,7 +32,7 @@ public class ProsesAdapter extends RecyclerView.Adapter<ProsesAdapter.BarangView
     private List<E_Proses> pengaduanList;
     E_Proses ePengaduan;
     Context mContext;
-    CardView cardView;
+
 
     public ProsesAdapter(Context mContext, List<E_Proses> e_pengaduans){
         this.mContext = mContext;
@@ -51,30 +51,33 @@ public class ProsesAdapter extends RecyclerView.Adapter<ProsesAdapter.BarangView
     @Override
     public void onBindViewHolder(@NonNull ProsesAdapter.BarangViewHolder holder, int position) {
 
-
-
-
         ePengaduan = pengaduanList.get(position);
         holder.tgl.setText(ePengaduan.getTglPengaduan());
         holder.laporan.setText(ePengaduan.getIsiLaporan());
-//        holder.foto.setImageBitmap(picasso);
+        holder.status.setText(ePengaduan.getStatus());
         Log.d("onBindViewHolder: ", ePengaduan.toString());
-        Bitmap setFoto=null;
+        Bitmap setFoto = null;
         String foto;
         foto = ePengaduan.getFoto();
-//        if (ePengaduan.getFoto().equals("")){
-//            foto = "assets/foto/user.png";
-//        }
-//        else {
-//            foto = " "+ePengaduan.getFoto();
-//        }
         try {
-            URL url = new URL(RetrofitClient.BASE_URL_FOTO+ foto);
+            URL url = new URL(RetrofitClient.BASE_URL_FOTO + foto);
             setFoto = BitmapFactory.decodeStream(url.openConnection().getInputStream());
         }  catch (IOException e) {
             e.printStackTrace();
         }
         holder.fotoo.setImageBitmap(setFoto);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, Detail_proses.class);
+                i.putExtra("id_pengaduan",ePengaduan.getIdPengaduan());
+                i.putExtra("tgl_pengaduan", ePengaduan.getTglPengaduan());
+                i.putExtra("isi_laporan", ePengaduan.getIsiLaporan());
+                i.putExtra("foto",ePengaduan.getFoto());
+                i.putExtra("status",ePengaduan.getStatus());
+                mContext.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -83,29 +86,16 @@ public class ProsesAdapter extends RecyclerView.Adapter<ProsesAdapter.BarangView
     }
 
     public class BarangViewHolder extends RecyclerView.ViewHolder {
-        public final TextView tgl,laporan;
+        public final TextView tgl,laporan,status;
         public ImageView fotoo ;
+        CardView cardView;
         public BarangViewHolder(@NonNull View itemView) {
             super(itemView);
-//            Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(foto);
             tgl = itemView.findViewById(R.id.tgl);
             laporan = itemView.findViewById(R.id.tv_detail);
             fotoo = itemView.findViewById(R.id.imageL);
             cardView = itemView.findViewById(R.id.cvLaporan);
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION){
-                        Intent i = new Intent(mContext, Detail_proses.class);
-                        i.putExtra("id",pengaduanList.get(position).getIdPengaduan());
-                        i.putExtra("tgl", pengaduanList.get(position).getTglPengaduan());
-                        i.putExtra("laporan", pengaduanList.get(position).getIsiLaporan());
-                        i.putExtra("foto",pengaduanList.get(position).getFoto());
-                        mContext.startActivity(i);
-                    }
-                }
-            });
+            status = itemView.findViewById(R.id.statuss);
         }
     }
 }

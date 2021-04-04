@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,6 +21,8 @@ import com.rahma.pengaduanmasyarakat.model_entity.E_Tanggapan;
 import com.rahma.pengaduanmasyarakat.model_entity.M_Tanggapan;
 import com.rahma.pengaduanmasyarakat.sharedpref.SharedPrefManager;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 import retrofit2.Call;
@@ -35,6 +39,8 @@ public class DetailBeranda extends AppCompatActivity {
     RecyclerView rvTanggapan;
     TanggapanSelesaiAdapter tanggapanSelesaiAdapter;
     int id_pengaduan;
+    String foto;
+    Bitmap setFoto = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +59,19 @@ public class DetailBeranda extends AppCompatActivity {
         rvTanggapan = findViewById(R.id.rv_tanggapanBeranda);
 
         final Intent intent = getIntent();
-        id_pengaduan=intent.getIntExtra("id",1);
+        id_pengaduan=intent.getIntExtra("idp",1);
         tanggal.setText(getIntent().getExtras().getString("tgl"));
         laporan.setText(getIntent().getExtras().getString("laporan"));
         nama.setText(getIntent().getExtras().getString("nama"));
+        foto = getIntent().getStringExtra("foto");
 
+        try {
+            URL url = new URL(RetrofitClient.BASE_URL_FOTO + foto);
+            setFoto = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+        }  catch (IOException e) {
+            e.printStackTrace();
+        }
+        imageView.setImageBitmap(setFoto);
         getTanggapan();
         mApiInterface.getTanggapan(id_pengaduan).enqueue(new Callback<M_Tanggapan>() {
             @Override

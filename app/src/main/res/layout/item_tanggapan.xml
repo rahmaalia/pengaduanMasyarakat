@@ -27,7 +27,8 @@
                 android:textSize="17sp"
                 android:textColor="#ffffff"
                 android:gravity="center_horizontal"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins"/>
 
             <TextView
                 android:id="@+id/tglTanggapan"
@@ -36,7 +37,8 @@
                 android:text="tanggal"
                 android:textColor="#ffffff"
                 android:textSize="15sp"
-                android:gravity="center_horizontal"/>
+                android:gravity="center_horizontal"
+                android:fontFamily="@font/poppins"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,7 +53,8 @@
                 android:text="tanggapan"
                 android:textColor="#ffffff"
                 android:textSize="15sp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins"/>
 
         </LinearLayout>
 

@@ -58,6 +58,17 @@ public class SelesaiAdapter extends RecyclerView.Adapter<SelesaiAdapter.SelesaiV
             e.printStackTrace();
         }
         holder.fotoo.setImageBitmap(setFoto);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, Detail_proses.class);
+                i.putExtra("id_pengaduan",eSelesai.getIdPengaduan());
+                i.putExtra("tgl_pengaduan", eSelesai.getTglPengaduan());
+                i.putExtra("isi_laporan", eSelesai.getIsiLaporan());
+                i.putExtra("foto",eSelesai.getFoto());
+                mContext.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -68,27 +79,14 @@ public class SelesaiAdapter extends RecyclerView.Adapter<SelesaiAdapter.SelesaiV
     public class SelesaiViewHolder extends RecyclerView.ViewHolder {
         public final TextView tgl, laporan;
         ImageView fotoo;
-
+        CardView cardView;
         public SelesaiViewHolder(@NonNull View itemView) {
             super(itemView);
             tgl = itemView.findViewById(R.id.tgl);
             laporan = itemView.findViewById(R.id.tv_detail);
             fotoo = itemView.findViewById(R.id.imageL);
             cardView = itemView.findViewById(R.id.cvLaporan);
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION) {
-                        Intent i = new Intent(mContext, Detail_proses.class);
-                        i.putExtra("tgl", selesaiList.get(position).getTglPengaduan());
-                        i.putExtra("laporan", selesaiList.get(position).getIsiLaporan());
-                        i.putExtra("id",selesaiList.get(position).getIdPengaduan());
-                        mContext.startActivity(i);
-                    }
 
-                }
-            });
         }
     }
 }

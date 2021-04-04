@@ -29,6 +29,7 @@ public class BerandaPetugasFragment extends Fragment {
         ViewPager viewPager = view.findViewById(R.id.view_pagerP);
         SectionPagerPetugasAdapter sectionPagerPetugasAdapter = new SectionPagerPetugasAdapter(getChildFragmentManager());
         sectionPagerPetugasAdapter.addFragment(new ProsesPetugasFragment(),"Proses");
+        sectionPagerPetugasAdapter.addFragment(new VerifikasiPetugasFragment(),"Verifikasi");
         sectionPagerPetugasAdapter.addFragment(new SelesaiPetugasFragment(),"Selesai");
 
         viewPager.setAdapter(sectionPagerPetugasAdapter);

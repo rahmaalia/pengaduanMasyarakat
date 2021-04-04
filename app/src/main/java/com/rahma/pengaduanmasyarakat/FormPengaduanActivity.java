@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.rahma.pengaduanmasyarakat.apihelper.BaseApiService;
 import com.rahma.pengaduanmasyarakat.apihelper.RetrofitClient;
 import com.rahma.pengaduanmasyarakat.sharedpref.SharedPrefManager;
@@ -61,7 +62,7 @@ public class FormPengaduanActivity extends AppCompatActivity {
     ImageView imageView;
     Button btnSubmit;
     String status;
-
+    TextInputLayout layoutLaporan;
 
 
     @Override
@@ -124,33 +125,40 @@ public class FormPengaduanActivity extends AppCompatActivity {
     }
 
     private void requestPengaduan() {
-        mApiService.inputLaporan(Date,
-                nik,
-                laporan.getText().toString(),
-                file.getName()
-        ).enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                try {
-                    JSONObject jsonRESULTS = new JSONObject(response.body().string());
-                    if (jsonRESULTS.getString("status").equals("true")){
-                        Toast.makeText(mContext, "BERHASIL LAPOR", Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(FormPengaduanActivity.this,BerandaActivity .class);
-                        startActivity(intent);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
 
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.e("debug", "onFailure: ERROR > " + t.getMessage());
-                Toast.makeText(mContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show();
-            }
-        });
+        if (laporan.length()==0) {
+            Toast.makeText(mContext, "Isi laporan", Toast.LENGTH_LONG).show();
+        }
+
+        if (laporan.length()>0){
+            mApiService.inputLaporan(Date,
+                    nik,
+                    laporan.getText().toString(),
+                    file.getName()
+            ).enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("status").equals("true")){
+                            Toast.makeText(mContext, "BERHASIL LAPOR", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(FormPengaduanActivity.this,BerandaActivity .class);
+                            startActivity(intent);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                    Toast.makeText(mContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
 
     }
 
@@ -258,7 +266,7 @@ public class FormPengaduanActivity extends AppCompatActivity {
     public Uri getImageUri(Context inContext, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "IMG_" + Calendar.getInstance().getTime(), null);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "IMG", null);
         return Uri.parse(path);
     }
 

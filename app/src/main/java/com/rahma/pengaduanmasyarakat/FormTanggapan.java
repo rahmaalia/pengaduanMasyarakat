@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,7 +34,7 @@ public class FormTanggapan extends AppCompatActivity {
     EditText edtTAnggapan;
     Button btnTanggapan;
     BaseApiService mApiService;
-    String Date;
+    String Date,status;
     int id_pengaduan,id_petugas;
 
     @Override
@@ -48,6 +49,7 @@ public class FormTanggapan extends AppCompatActivity {
         Calendar date =Calendar.getInstance();
         Date= DateFormat.format(date.getTime());
 
+
         edtTAnggapan = findViewById(R.id.et_tanggapan);
         btnTanggapan = findViewById(R.id.btnTanggapan);
 
@@ -58,42 +60,75 @@ public class FormTanggapan extends AppCompatActivity {
         btnTanggapan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mApiService.inputTanggapan(id_pengaduan,Date,edtTAnggapan.getText().toString(),id_petugas)
-                        .enqueue(new Callback<ResponseBody>() {
-                            @Override
-                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                                if (response.isSuccessful()){
-                                    try {
-                                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
-                                        if (jsonRESULTS.getString("status").equals("true")){
-                                            Toast.makeText(mContext, "BERHASIL MENANGGAPI", Toast.LENGTH_SHORT).show();
-                                            Intent intent=new Intent(FormTanggapan.this,DetailProsesPetugas .class);
-                                            startActivity(intent);
-                                        }
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                }else {
-                                    Log.i("debug", "onResponse : GA BERHASIL");
-                                    Toast.makeText(mContext, String.valueOf(id_petugas), Toast.LENGTH_SHORT).show();
-
-                                }
-
-                            }
-
-                            @Override
-                            public void onFailure(Call<ResponseBody> call, Throwable t) {
-
-                            }
-                        });
                 requestTanggapan();
+                updateStatus();
+
             }
         });
     }
 
-    private void requestTanggapan() {
 
+
+    private void requestTanggapan() {
+        mApiService.inputTanggapan(id_pengaduan,Date,edtTAnggapan.getText().toString(),id_petugas)
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()){
+                            try {
+                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                                if (jsonRESULTS.getString("status").equals("true")){
+                                    Toast.makeText(mContext, "BERHASIL MENANGGAPI", Toast.LENGTH_SHORT).show();
+                                    Intent intent=new Intent(FormTanggapan.this,PetugasActivity .class);
+                                    startActivity(intent);
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }else {
+                            Log.i("debug", "onResponse : GA BERHASIL");
+                            Toast.makeText(mContext, String.valueOf(id_petugas), Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                    }
+                });
+    }
+
+    private void updateStatus() {
+        status = "selesai";
+        mApiService.updateStatus(id_pengaduan,status).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("status").equals("true")){
+                            Toast.makeText(mContext, "BERHASIL ", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+                    Log.i("debug", "onResponse : GA BERHASIL");
+                    Toast.makeText(mContext, String.valueOf(id_petugas), Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
     }
 }

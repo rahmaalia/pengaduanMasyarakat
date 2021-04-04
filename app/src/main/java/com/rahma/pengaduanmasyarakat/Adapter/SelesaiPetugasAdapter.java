@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rahma.pengaduanmasyarakat.DetailBeranda;
+import com.rahma.pengaduanmasyarakat.Detail_proses;
 import com.rahma.pengaduanmasyarakat.R;
 import com.rahma.pengaduanmasyarakat.apihelper.RetrofitClient;
 import com.rahma.pengaduanmasyarakat.model_entity.E_ProsesPetugas;
@@ -59,6 +60,18 @@ public class SelesaiPetugasAdapter extends RecyclerView.Adapter<SelesaiPetugasAd
             e.printStackTrace();
         }
         holder.fotoo.setImageBitmap(setFoto);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, DetailBeranda.class);
+                i.putExtra("idp",eSelesaiPetugas.getIdPengaduan());
+                i.putExtra("tgl", eSelesaiPetugas.getTglPengaduan());
+                i.putExtra("laporan", eSelesaiPetugas.getIsiLaporan());
+                i.putExtra("foto",eSelesaiPetugas.getFoto());
+                i.putExtra("nama",eSelesaiPetugas.getNama());
+                mContext.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -69,6 +82,7 @@ public class SelesaiPetugasAdapter extends RecyclerView.Adapter<SelesaiPetugasAd
     public class SelesaiPetugasViewHolder extends RecyclerView.ViewHolder {
         public final TextView tgl,laporan,nama;
         public ImageView fotoo ;
+        CardView cardView;
         public SelesaiPetugasViewHolder(@NonNull View itemView) {
             super(itemView);
             tgl = itemView.findViewById(R.id.tglP);
@@ -76,19 +90,7 @@ public class SelesaiPetugasAdapter extends RecyclerView.Adapter<SelesaiPetugasAd
             nama = itemView.findViewById(R.id.namaP);
             fotoo = itemView.findViewById(R.id.imageP);
             cardView = itemView.findViewById(R.id.cvBerandaP);
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION){
-                        Intent i = new Intent(mContext, DetailBeranda.class);
-                        i.putExtra("tgl", selesaiPetugas.get(position).getTglPengaduan());
-                        i.putExtra("laporan", selesaiPetugas.get(position).getIsiLaporan());
-                        i.putExtra("nama", selesaiPetugas.get(position).getNama());
-                        mContext.startActivity(i);
-                    }
-                }
-            });
+
         }
     }
 }

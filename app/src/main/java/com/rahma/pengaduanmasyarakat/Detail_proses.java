@@ -10,7 +10,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +26,8 @@ import com.rahma.pengaduanmasyarakat.model_entity.E_Tanggapan;
 import com.rahma.pengaduanmasyarakat.model_entity.M_Tanggapan;
 import com.rahma.pengaduanmasyarakat.sharedpref.SharedPrefManager;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -32,20 +36,24 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Detail_proses extends AppCompatActivity {
-    TextView tanggal,laporan;
+    TextView tanggal,laporan,status;
     BaseApiService mApiInterface;
     SharedPrefManager sharedPrefManager;
     Context mContext;
     ImageView imageView,exit,dalete;
-    int id_pengaduan,pengaduan_id;
+    int id_pengaduan,pengaduan_id,fotoo;
     List<E_Tanggapan> tanggapans;
     RecyclerView rvTanggapan;
     TanggapanSelesaiAdapter tanggapanSelesaiAdapter;
+    Bitmap setFoto = null;
+    String foto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_proses);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         mContext = this;
         sharedPrefManager = new SharedPrefManager(this);
@@ -57,13 +65,24 @@ public class Detail_proses extends AppCompatActivity {
         exit = findViewById(R.id.exit);
         dalete = findViewById(R.id.delete);
         rvTanggapan = findViewById(R.id.rv_tanggapan);
+        status = findViewById(R.id.statusDetail);
 
         final Intent intent = getIntent();
-        tanggal.setText(getIntent().getExtras().getString("tgl"));
-        laporan.setText(getIntent().getExtras().getString("laporan"));
-        id_pengaduan=intent.getIntExtra("id",1);
+        tanggal.setText(getIntent().getExtras().getString("tgl_pengaduan"));
+        laporan.setText(getIntent().getExtras().getString("isi_laporan"));
+        id_pengaduan = intent.getIntExtra("id_pengaduan",1);
+        foto = getIntent().getStringExtra("foto");
+        status.setText(getIntent().getExtras().getString("status"));
+
         pengaduan_id = id_pengaduan;
-//        imageView.setImageBitmap((Bitmap) getIntent().getExtras().get("foto"));
+
+        try {
+            URL url = new URL(RetrofitClient.BASE_URL_FOTO + foto);
+            setFoto = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+        }  catch (IOException e) {
+            e.printStackTrace();
+        }
+        imageView.setImageBitmap(setFoto);
         
         getTanggapan();
         mApiInterface.getTanggapan(pengaduan_id).enqueue(new Callback<M_Tanggapan>() {

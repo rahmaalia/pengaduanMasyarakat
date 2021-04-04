@@ -1651,6 +1651,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable btn_ver
 drawable button_daftar
 drawable button_round_corner
 drawable color_selector
@@ -1716,6 +1717,7 @@ drawable rounded_edit_text
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable user
 drawable username
 font poppins
 id ALT
@@ -1816,7 +1818,9 @@ id btnDaftar
 id btnKirim
 id btnLogin
 id btnTanggap
+id btnTanggapV
 id btnTanggapan
+id btnVerifikasi
 id btnmasuk
 id bulan
 id buttonPanel
@@ -1908,6 +1912,7 @@ id exit
 id exitB
 id exitPP
 id exitUntilCollapsed
+id exitV
 id expand_activities_button
 id expanded_menu
 id fab1
@@ -1950,6 +1955,7 @@ id imageB
 id imageDetail
 id imageDetailB
 id imageDetailP
+id imageDetailV
 id imageL
 id imageP
 id img_profil
@@ -1965,6 +1971,7 @@ id labeled
 id laporanDetail
 id laporanDetailB
 id laporanDetailP
+id laporanDetailv
 id largeLabel
 id layout
 id layoutnama
@@ -2040,6 +2047,7 @@ id namaB
 id namaLengkap
 id namaP
 id namaPP
+id namaV
 id nav_file
 id nav_home
 id nav_homeP
@@ -2096,6 +2104,7 @@ id rv_selesai
 id rv_selsaiPetugas
 id rv_tanggapan
 id rv_tanggapanBeranda
+id rv_verPetugas
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -2148,7 +2157,9 @@ id startVertical
 id staticLayout
 id staticPostLayout
 id status
+id statusDetail
 id status_bar_latest_event_content
+id statuss
 id stop
 id stretch
 id submenuarrow
@@ -2192,6 +2203,7 @@ id tgl
 id tglDetail
 id tglDetailB
 id tglDetailP
+id tglDetailV
 id tglP
 id tglTanggapan
 id tglb
@@ -2224,6 +2236,7 @@ id tv_detailb
 id tv_gone
 id tv_goneP
 id tv_gonePS
+id tv_goneVer
 id tv_gones
 id txtDaftar
 id unchecked
@@ -2313,6 +2326,7 @@ layout activity_register
 layout activity_selesai_petugas_fragment
 layout activity_tab
 layout activity_tab_petugas
+layout activity_verifikasi_petugas_fragment
 layout content_beranda_petugas
 layout content_laporanku
 layout custom_dialog
@@ -2334,6 +2348,7 @@ layout design_text_input_start_icon
 layout detail_beranda
 layout detail_proses
 layout detail_proses_petugas
+layout detail_verifikasi
 layout form_tanggapan
 layout fragment_beranda_petugas
 layout fragment_home
@@ -2427,6 +2442,7 @@ mipmap file_icon
 mipmap home_icon
 mipmap ic_launcher
 mipmap ic_launcher_round
+mipmap pengaduan_logo
 mipmap user_icon
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description

@@ -16,24 +16,28 @@
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\mipmap-xxxhdpi\\user_icon.png"
     },
     {
-        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable_button_daftar.xml.flat",
-        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\drawable\\button_daftar.xml"
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_plus.xml.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\plus.xml"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_nik.png.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\nik.png"
     },
     {
-        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_plus.xml.flat",
-        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\plus.xml"
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable_button_daftar.xml.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\drawable\\button_daftar.xml"
     },
     {
-        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_nik.xml.flat",
-        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\nik.xml"
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_user.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\user.png"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_username.png.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\username.png"
+    },
+    {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_nik.xml.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\nik.xml"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_back.png.flat",
@@ -42,6 +46,10 @@
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_laporanku.xml.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\layout\\fragment_laporanku.xml"
+    },
+    {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_pengaduan_logo.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\mipmap-xxhdpi\\pengaduan_logo.png"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_user_icon.png.flat",
@@ -84,8 +92,16 @@
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\image.png"
     },
     {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_user.xml.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\user.xml"
+    },
+    {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_oval.xml.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\drawable\\btn_oval.xml"
+    },
+    {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\layout_detail_verifikasi.xml.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\layout\\detail_verifikasi.xml"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_back.png.flat",
@@ -144,6 +160,10 @@
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\icon.png"
     },
     {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_ver.xml.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\drawable\\btn_ver.xml"
+    },
+    {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_delete.png.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\delete.png"
     },
@@ -154,6 +174,10 @@
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_beranda.xml.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\layout\\item_beranda.xml"
+    },
+    {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_user.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\user.png"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_form_pengaduann.xml.flat",
@@ -208,6 +232,10 @@
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\plus.png"
     },
     {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_user.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\user.png"
+    },
+    {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_file_icon.png.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\mipmap-xxxhdpi\\file_icon.png"
     },
@@ -244,6 +272,10 @@
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\font\\poppins.otf"
     },
     {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_user.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\user.png"
+    },
+    {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_back.xml.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\back.xml"
     },
@@ -270,6 +302,10 @@
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_exit_detail.png.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\exit_detail.png"
+    },
+    {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_user.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\user.png"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_plus.png.flat",
@@ -528,6 +564,10 @@
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\layout\\activity_tab_petugas.xml"
     },
     {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_verifikasi_petugas_fragment.xml.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\layout\\activity_verifikasi_petugas_fragment.xml"
+    },
+    {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_petugas.xml.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\layout\\activity_petugas.xml"
     },
@@ -554,6 +594,10 @@
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_image.png.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\image.png"
+    },
+    {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_user.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\user.png"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_user_icon.png.flat",

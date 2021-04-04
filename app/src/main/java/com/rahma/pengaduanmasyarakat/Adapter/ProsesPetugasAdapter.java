@@ -30,6 +30,8 @@ public class ProsesPetugasAdapter extends RecyclerView.Adapter<ProsesPetugasAdap
     E_ProsesPetugas eProsesPetugas;
     Context mContext;
     CardView cardView;
+    int id_pengaduan;
+
 
     public ProsesPetugasAdapter(Context mContext, List<E_ProsesPetugas> e_prosesPetugases){
         this.mContext = mContext;
@@ -60,6 +62,18 @@ public class ProsesPetugasAdapter extends RecyclerView.Adapter<ProsesPetugasAdap
             e.printStackTrace();
         }
         holder.fotoo.setImageBitmap(setFoto);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, DetailProsesPetugas.class);
+                i.putExtra("id",eProsesPetugas.getIdPengaduan());
+                i.putExtra("tgl", eProsesPetugas.getTglPengaduan());
+                i.putExtra("laporan", eProsesPetugas.getIsiLaporan());
+                i.putExtra("foto",eProsesPetugas.getFoto());
+                i.putExtra("nama",eProsesPetugas.getNama());
+                mContext.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -70,6 +84,7 @@ public class ProsesPetugasAdapter extends RecyclerView.Adapter<ProsesPetugasAdap
     public class ProsesPetugasViewHolder extends RecyclerView.ViewHolder {
         public final TextView tgl,laporan,nama;
         public ImageView fotoo ;
+        CardView cardView;
         public ProsesPetugasViewHolder(@NonNull View itemView) {
             super(itemView);
             tgl = itemView.findViewById(R.id.tglP);
@@ -77,20 +92,8 @@ public class ProsesPetugasAdapter extends RecyclerView.Adapter<ProsesPetugasAdap
             nama = itemView.findViewById(R.id.namaP);
             fotoo = itemView.findViewById(R.id.imageP);
             cardView = itemView.findViewById(R.id.cvBerandaP);
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION){
-                        Intent i = new Intent(mContext, DetailProsesPetugas.class);
-                        i.putExtra("id",prosesPetugasList.get(position).getIdPengaduan());
-                        i.putExtra("tgl", prosesPetugasList.get(position).getTglPengaduan());
-                        i.putExtra("laporan", prosesPetugasList.get(position).getIsiLaporan());
-                        i.putExtra("nama", prosesPetugasList.get(position).getNama());
-                        mContext.startActivity(i);
-                    }
-                }
-            });
+
+
         }
     }
 }

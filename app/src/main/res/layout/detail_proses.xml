@@ -53,22 +53,42 @@
         android:layout_height="260dp"
         android:src="@drawable/image"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/tglDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tgl"
+            android:textSize="17sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/poppins"
+            />
+
+        <TextView
+            android:id="@+id/statusDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="status"
+            android:textSize="17sp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/poppins"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="10dp">
 
-        <TextView
-            android:id="@+id/tglDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="tanggal"
-            android:textSize="17sp"
-            android:layout_margin="2dp"
-            android:layout_marginLeft="5dp"
-            android:textColor="@color/colorAccent"
-            android:fontFamily="@font/poppins"/>
 
         <TextView
             android:id="@+id/laporanDetail"

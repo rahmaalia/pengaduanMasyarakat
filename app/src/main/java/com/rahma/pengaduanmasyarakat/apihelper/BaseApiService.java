@@ -6,6 +6,7 @@ import com.rahma.pengaduanmasyarakat.model_entity.M_ProsesPetugas;
 import com.rahma.pengaduanmasyarakat.model_entity.M_Selesai;
 import com.rahma.pengaduanmasyarakat.model_entity.M_SelesaiPetugas;
 import com.rahma.pengaduanmasyarakat.model_entity.M_Tanggapan;
+import com.rahma.pengaduanmasyarakat.model_entity.M_Verifikasi;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -16,6 +17,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 
@@ -70,6 +72,14 @@ public interface BaseApiService {
     @GET("getSelesaiPetugas")
     Call<M_SelesaiPetugas> getSelesaiPetugas ();
 
+    @GET("getVerifikasiPetugas")
+    Call<M_Verifikasi> getVerifikasiPetugas ();
+
     @GET("getTanggapan/{id}")
     Call<M_Tanggapan> getTanggapan (@Path("id") int id_pengaduan);
+
+    @FormUrlEncoded
+    @PUT("updateStatus/{id}")
+    Call<ResponseBody> updateStatus (@Path("id") int id_pengaduan,
+                                    @Field("status") String status);
 }

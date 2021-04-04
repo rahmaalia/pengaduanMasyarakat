@@ -23,16 +23,8 @@
             android:layout_marginTop="110dp"
             android:text="Daftar"
             android:textColor="#FF5757"
-            android:textSize="50sp"
+            android:textSize="55sp"
             android:textStyle="bold"
-            android:fontFamily="@font/poppins"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="laporin"
-            android:textSize="30dp"
-            android:textColor="#FF5757"
-            android:layout_marginLeft="22dp"
             android:fontFamily="@font/poppins"/>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -152,7 +144,7 @@
             android:id="@+id/btnDaftar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="35dp"
             android:text="daftar"
             android:textColor="#ffffff"
             android:background="@drawable/button_daftar"
