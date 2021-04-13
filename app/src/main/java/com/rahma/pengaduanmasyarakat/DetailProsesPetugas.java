@@ -60,7 +60,7 @@ public class DetailProsesPetugas extends AppCompatActivity {
         imageView = findViewById(R.id.imageDetailP);
         nama = findViewById(R.id.namaPP);
         exit = findViewById(R.id.exitPP);
-        btnTanggapi = findViewById(R.id.btnTanggap);
+//        btnTanggapi = findViewById(R.id.btnTanggap);
         btnVer = findViewById(R.id.btnVerifikasi);
 
         final Intent intent = getIntent();
@@ -88,14 +88,14 @@ public class DetailProsesPetugas extends AppCompatActivity {
             }
         });
 
-        btnTanggapi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(DetailProsesPetugas.this,FormTanggapan.class);
-                i.putExtra("id",pengaduan_id);
-                startActivity(i);
-            }
-        });
+//        btnTanggapi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(DetailProsesPetugas.this,FormTanggapan.class);
+//                i.putExtra("id",pengaduan_id);
+//                startActivity(i);
+//            }
+//        });
         status = "verifikasi";
         btnVer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +117,8 @@ public class DetailProsesPetugas extends AppCompatActivity {
                                                 JSONObject jsonRESULTS = new JSONObject(response.body().string());
                                                 if (jsonRESULTS.getString("status").equals("true")){
                                                     Toast.makeText(mContext, "BERHASIL ", Toast.LENGTH_SHORT).show();
+                                                    Intent intent=new Intent(DetailProsesPetugas.this, PetugasActivity.class);
+                                                    startActivity(intent);
                                                 }
                                             } catch (JSONException e) {
                                                 e.printStackTrace();

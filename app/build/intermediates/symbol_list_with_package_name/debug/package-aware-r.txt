@@ -1665,6 +1665,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable edit
 drawable exit_detail
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
@@ -1804,6 +1805,7 @@ id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
 id back
+id backEdit
 id backT
 id barrier
 id baseline
@@ -1815,9 +1817,10 @@ id bounce
 id bt_keluar
 id bt_keluarPetugas
 id btnDaftar
+id btnEdit
+id btnEditt
 id btnKirim
 id btnLogin
-id btnTanggap
 id btnTanggapV
 id btnTanggapan
 id btnVerifikasi
@@ -1902,12 +1905,16 @@ id enterAlwaysCollapsed
 id et_katasandi
 id et_laporanL
 id et_nama
+id et_namaU
 id et_namapengguna
 id et_nik
+id et_nikU
 id et_pass
 id et_pengguna
+id et_penggunaU
 id et_tanggapan
 id et_telp
+id et_telpU
 id exit
 id exitB
 id exitPP
@@ -1975,11 +1982,15 @@ id laporanDetailv
 id largeLabel
 id layout
 id layoutnama
+id layoutnamaU
 id layoutnik
+id layoutnikU
 id layoutp
 id layoutpass
 id layoutpengguna
+id layoutpenggunaU
 id layouttelp
+id layouttelpU
 id layoutuser
 id left
 id leftToRight
@@ -2104,6 +2115,7 @@ id rv_selesai
 id rv_selsaiPetugas
 id rv_tanggapan
 id rv_tanggapanBeranda
+id rv_tanggapanVer
 id rv_verPetugas
 id save_non_transition_alpha
 id save_overlay_view
@@ -2317,6 +2329,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_beranda
+layout activity_edit
 layout activity_form_pengaduann
 layout activity_login
 layout activity_main

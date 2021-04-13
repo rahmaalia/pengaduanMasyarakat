@@ -18,7 +18,7 @@
             android:id="@+id/tv_goneVer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tidak ada laporan yang haris di tanggapi"
+            android:text="Tidak ada laporan yang harus di tanggapi"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
             android:visibility="gone"

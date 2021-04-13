@@ -59,9 +59,9 @@ public class DetailBeranda extends AppCompatActivity {
         rvTanggapan = findViewById(R.id.rv_tanggapanBeranda);
 
         final Intent intent = getIntent();
-        id_pengaduan=intent.getIntExtra("idp",1);
-        tanggal.setText(getIntent().getExtras().getString("tgl"));
-        laporan.setText(getIntent().getExtras().getString("laporan"));
+        id_pengaduan=intent.getIntExtra("id_pengaduan",1);
+        tanggal.setText(getIntent().getExtras().getString("tgl_pengaduan"));
+        laporan.setText(getIntent().getExtras().getString("isi_laporan"));
         nama.setText(getIntent().getExtras().getString("nama"));
         foto = getIntent().getStringExtra("foto");
 

@@ -1,11 +1,19 @@
 [
     {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_edit.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\edit.png"
+    },
+    {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_delete.xml.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\delete.xml"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_file_icon.png.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\mipmap-mdpi\\file_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_edit.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\edit.png"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_selesai_petugas_fragment.xml.flat",
@@ -62,6 +70,10 @@
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_icon.png.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_edit.xml.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\layout\\activity_edit.xml"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
@@ -268,6 +280,10 @@
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\exit_detail.png"
     },
     {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_edit.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\edit.png"
+    },
+    {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\font_poppins.otf.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\font\\poppins.otf"
     },
@@ -326,6 +342,10 @@
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_username.png.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\username.png"
+    },
+    {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_edit.xml.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\edit.xml"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
@@ -524,8 +544,16 @@
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\drawable\\round_edt.xml"
     },
     {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_edit.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\edit.png"
+    },
+    {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_exit_detail.png.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\exit_detail.png"
+    },
+    {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_edit.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\edit.png"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_nik.png.flat",
@@ -574,6 +602,10 @@
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable_custom_button_login.xml.flat",
         "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\src\\main\\res\\drawable\\custom_button_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_edit.png.flat",
+        "source": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\edit.png"
     },
     {
         "merged": "C:\\Users\\Windows 10\\AndroidStudioProjects\\PengaduanMasyarakat\\app\\build\\intermediates\\res\\merged\\debug\\layout_detail_beranda.xml.flat",

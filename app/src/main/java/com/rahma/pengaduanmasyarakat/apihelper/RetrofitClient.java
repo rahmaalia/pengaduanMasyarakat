@@ -8,8 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
 
     private static Retrofit retrofit = null;
-    public static final String BASE_URL_API = "http://192.168.1.6:80/api/";
-    public static final String BASE_URL_FOTO = "http://192.168.1.6:80/foto/";
+    public static final String BASE_URL_API = "http://192.168.1.9:80/api/";
+    public static final String BASE_URL_FOTO = "http://192.168.1.9:80/foto/";
 
     public static Retrofit getClient(String baseUrl){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();

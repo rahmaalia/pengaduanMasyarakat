@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditActivity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_lapor"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Pelaporan"
+        app:titleTextColor="#ffffff"
+        android:background="@color/colorAccent"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.Title.Inverse"
+                android:text="Edit"
+                android:textColor="#fff"
+                android:layout_toRightOf="@id/backEdit"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins"
+                android:gravity="center_vertical"/>
+
+            <ImageView
+                android:id="@+id/backEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutnikU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#FF5757"
+            android:layout_marginTop="75dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nikU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FF5757"
+                android:backgroundTint="#FF5757"
+                android:ems="10"
+                android:textSize="17sp"
+                android:textColor="#FF5757"
+                android:inputType="number"
+                android:layout_marginTop="25dp"
+                android:hint="NIK"
+                android:fontFamily="@font/poppins"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutnamaU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#FF5757">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_namaU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FF5757"
+                android:backgroundTint="#FF5757"
+                android:ems="10"
+                android:textSize="17sp"
+                android:textColor="#FF5757"
+                android:inputType="textPersonName"
+                android:layout_marginTop="30dp"
+                android:hint="Nama"
+                android:fontFamily="@font/poppins"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layouttelpU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#FF5757">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_telpU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FF5757"
+                android:backgroundTint="#FF5757"
+                android:ems="10"
+                android:textSize="17sp"
+                android:textColor="#FF5757"
+                android:inputType="phone"
+                android:layout_marginTop="30dp"
+                android:hint="No Telepon"
+                android:fontFamily="@font/poppins"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutpenggunaU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#FF5757">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_penggunaU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FF5757"
+                android:backgroundTint="#FF5757"
+                android:ems="10"
+                android:textSize="17sp"
+                android:textColor="#FF5757"
+                android:inputType="textPersonName"
+                android:layout_marginTop="30dp"
+                android:hint="Nama pengguna"
+                android:fontFamily="@font/poppins"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <Button
+            android:id="@+id/btnEditt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="35dp"
+            android:text="edit"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_daftar"
+            android:fontFamily="@font/poppins"/>
+
+    </LinearLayout>
+</LinearLayout>

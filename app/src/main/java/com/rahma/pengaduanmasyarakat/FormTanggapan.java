@@ -9,8 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.rahma.pengaduanmasyarakat.apihelper.BaseApiService;
 import com.rahma.pengaduanmasyarakat.apihelper.RetrofitClient;
 import com.rahma.pengaduanmasyarakat.sharedpref.SharedPrefManager;
@@ -21,6 +23,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.TimeZone;
 
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -36,6 +39,7 @@ public class FormTanggapan extends AppCompatActivity {
     BaseApiService mApiService;
     String Date,status;
     int id_pengaduan,id_petugas;
+    TextInputLayout tl_tanggapan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +51,12 @@ public class FormTanggapan extends AppCompatActivity {
         mApiService = RetrofitClient.getClient(RetrofitClient.BASE_URL_API).create(BaseApiService.class);
         SimpleDateFormat DateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Calendar date =Calendar.getInstance();
-        Date= DateFormat.format(date.getTime());
+//        Date= DateFormat.format(date.getTime());
 
 
         edtTAnggapan = findViewById(R.id.et_tanggapan);
         btnTanggapan = findViewById(R.id.btnTanggapan);
+        tl_tanggapan = findViewById(R.id.tl_tanggapan);
 
         id_petugas = sharedPrefManager.getSpIdpetugas();
         final Intent intent = getIntent();
@@ -65,41 +70,59 @@ public class FormTanggapan extends AppCompatActivity {
 
             }
         });
+
+        hari();
+
     }
 
 
 
     private void requestTanggapan() {
-        mApiService.inputTanggapan(id_pengaduan,Date,edtTAnggapan.getText().toString(),id_petugas)
-                .enqueue(new Callback<ResponseBody>() {
-                    @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        if (response.isSuccessful()){
-                            try {
-                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
-                                if (jsonRESULTS.getString("status").equals("true")){
-                                    Toast.makeText(mContext, "BERHASIL MENANGGAPI", Toast.LENGTH_SHORT).show();
-                                    Intent intent=new Intent(FormTanggapan.this,PetugasActivity .class);
-                                    startActivity(intent);
+
+        if (edtTAnggapan.length()==0){
+            Toast.makeText(mContext, "Isi Tanggapan", Toast.LENGTH_LONG).show();
+        }
+        if (edtTAnggapan.length()==0) {
+            edtTAnggapan.setError("Nama tidak boleh kosong");
+        }
+        else if(edtTAnggapan.length()!=0){
+            tl_tanggapan.setError(null);
+            tl_tanggapan.setErrorEnabled(false);
+        }
+        if (edtTAnggapan.length()>0){
+            mApiService.inputTanggapan(id_pengaduan,Date,edtTAnggapan.getText().toString(),id_petugas)
+                    .enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            if (response.isSuccessful()){
+                                try {
+                                    JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                                    if (jsonRESULTS.getString("status").equals("true")){
+                                        Toast.makeText(mContext, "BERHASIL MENANGGAPI", Toast.LENGTH_SHORT).show();
+                                        Intent intent=new Intent(FormTanggapan.this,PetugasActivity .class);
+                                        startActivity(intent);
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                            }else {
+                                Log.i("debug", "onResponse : GA BERHASIL");
+                                Toast.makeText(mContext, String.valueOf(id_petugas), Toast.LENGTH_SHORT).show();
+
                             }
-                        }else {
-                            Log.i("debug", "onResponse : GA BERHASIL");
-                            Toast.makeText(mContext, String.valueOf(id_petugas), Toast.LENGTH_SHORT).show();
 
                         }
 
-                    }
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
 
-                    @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        }
+                    });
+        }
 
-                    }
-                });
+
     }
 
     private void updateStatus() {
@@ -130,5 +153,26 @@ public class FormTanggapan extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void hari() {
+
+
+        Calendar c = Calendar.getInstance(TimeZone.getDefault());
+        String[] namaBulan = {"Januari","Februari","Maret", "April", "Mei", "Juni", "Juli",
+                "Agustus", "September", "Oktober", "Novevenber",
+                "Desember"};
+        String [] namaHari = {  "Sabtu", "Minggu", "Senin", "Selasa", "Rabu", "Kamis","Jumat","sabtu"};
+
+        String harii = namaHari[c.get(Calendar.DAY_OF_WEEK)];
+        String bulann = namaBulan[c.get(Calendar.MONTH)];
+        int tahunn = c.get(Calendar.YEAR);
+        int date = c.get(Calendar.DAY_OF_MONTH);
+
+        SimpleDateFormat jam = new SimpleDateFormat("HH:mm:ss");
+        Calendar datee =Calendar.getInstance();
+
+
+        Date = (""+date+" "+""+bulann+" "+""+tahunn+"  "+""+jam.format(datee.getTime()));
     }
 }

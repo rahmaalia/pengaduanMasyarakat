@@ -90,6 +90,9 @@ public class RegisterActivity extends AppCompatActivity {
                 if (etTelp.length()==0) {
                     layoutNotelp.setError("NoTelp tidak boleh kosong");
                 }
+                if (etTelp.length() >= 14){
+                    layoutNotelp.setError("max 13");
+                }
                 else{
                     layoutNotelp.setError(null);
                     layoutNotelp.setErrorEnabled(false);
@@ -105,7 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
                     layoutNik.setErrorEnabled(false);
                 }
 
-                if (etNama.length()>0 && etUsername.length()>0 && etTelp.length()>0 && etPassword.length()>0 && etNik.length()>15){
+                if (etNama.length()>0 && etUsername.length()>0 && etTelp.length()<14 && etPassword.length()>0 && etNik.length()>15){
 
                     requestRegister();
                 }

@@ -1,6 +1,7 @@
 package com.rahma.pengaduanmasyarakat.apihelper;
 
 import com.rahma.pengaduanmasyarakat.model_entity.M_Beranda;
+import com.rahma.pengaduanmasyarakat.model_entity.M_Profil;
 import com.rahma.pengaduanmasyarakat.model_entity.M_Proses;
 import com.rahma.pengaduanmasyarakat.model_entity.M_ProsesPetugas;
 import com.rahma.pengaduanmasyarakat.model_entity.M_Selesai;
@@ -82,4 +83,20 @@ public interface BaseApiService {
     @PUT("updateStatus/{id}")
     Call<ResponseBody> updateStatus (@Path("id") int id_pengaduan,
                                     @Field("status") String status);
+
+    @FormUrlEncoded
+    @PUT("update/{nik}")
+    Call<ResponseBody> updateMasyarakat (@Path("nik") String nik,
+                                         @Field("nama") String nama,
+                                         @Field("username") String username,
+                                         @Field("telp") String telp);
+
+    @FormUrlEncoded
+    @PUT("update/{id_user}")
+    Call<ResponseBody> updateUser (@Path("id_user") int id_user,
+                                   @Field("username") String username);
+
+    @GET("getMasyarakat/{nik}")
+    Call<M_Profil> getProfil (@Path("nik") String nik);
 }
+

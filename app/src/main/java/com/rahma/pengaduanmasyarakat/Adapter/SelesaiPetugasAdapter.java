@@ -60,18 +60,7 @@ public class SelesaiPetugasAdapter extends RecyclerView.Adapter<SelesaiPetugasAd
             e.printStackTrace();
         }
         holder.fotoo.setImageBitmap(setFoto);
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(mContext, DetailBeranda.class);
-                i.putExtra("idp",eSelesaiPetugas.getIdPengaduan());
-                i.putExtra("tgl", eSelesaiPetugas.getTglPengaduan());
-                i.putExtra("laporan", eSelesaiPetugas.getIsiLaporan());
-                i.putExtra("foto",eSelesaiPetugas.getFoto());
-                i.putExtra("nama",eSelesaiPetugas.getNama());
-                mContext.startActivity(i);
-            }
-        });
+
     }
 
     @Override
@@ -90,7 +79,21 @@ public class SelesaiPetugasAdapter extends RecyclerView.Adapter<SelesaiPetugasAd
             nama = itemView.findViewById(R.id.namaP);
             fotoo = itemView.findViewById(R.id.imageP);
             cardView = itemView.findViewById(R.id.cvBerandaP);
-
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        Intent i = new Intent(mContext, DetailBeranda.class);
+                        i.putExtra("id_pengaduan", selesaiPetugas.get(position).getIdPengaduan());
+                        i.putExtra("tgl_pengaduan", selesaiPetugas.get(position).getTglPengaduan());
+                        i.putExtra("isi_laporan", selesaiPetugas.get(position).getIsiLaporan());
+                        i.putExtra("foto", selesaiPetugas.get(position).getFoto());
+                        i.putExtra("nama", selesaiPetugas.get(position).getNama());
+                        mContext.startActivity(i);
+                    }
+                }
+            });
         }
     }
 }

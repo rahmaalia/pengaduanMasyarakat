@@ -59,18 +59,7 @@ public class VerifikasiPetugasAdapter extends RecyclerView.Adapter<VerifikasiPet
             e.printStackTrace();
         }
         holder.fotoo.setImageBitmap(setFoto);
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(mContext, DetailVerifikasi.class);
-                i.putExtra("idp",e_verifikasi.getIdPengaduan());
-                i.putExtra("tgl", e_verifikasi.getTglPengaduan());
-                i.putExtra("laporan", e_verifikasi.getIsiLaporan());
-                i.putExtra("foto",e_verifikasi.getFoto());
-                i.putExtra("nama",e_verifikasi.getNama());
-                mContext.startActivity(i);
-            }
-        });
+
     }
 
     @Override
@@ -89,6 +78,21 @@ public class VerifikasiPetugasAdapter extends RecyclerView.Adapter<VerifikasiPet
             nama = itemView.findViewById(R.id.namaP);
             fotoo = itemView.findViewById(R.id.imageP);
             cardView = itemView.findViewById(R.id.cvBerandaP);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        Intent i = new Intent(mContext, DetailVerifikasi.class);
+                        i.putExtra("idp", verifikasi.get(position).getIdPengaduan());
+                        i.putExtra("tgl", verifikasi.get(position).getTglPengaduan());
+                        i.putExtra("laporan", verifikasi.get(position).getIsiLaporan());
+                        i.putExtra("foto", verifikasi.get(position).getFoto());
+                        i.putExtra("nama", verifikasi.get(position).getNama());
+                        mContext.startActivity(i);
+                    }
+                }
+            });
         }
     }
 }

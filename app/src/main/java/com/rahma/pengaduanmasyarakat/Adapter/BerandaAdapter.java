@@ -69,18 +69,6 @@ public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.BerandaV
             e.printStackTrace();
         }
         holder.fotoo.setImageBitmap(setFoto);
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(mContext, DetailBeranda.class);
-                i.putExtra("idp",eBeranda.getIdPengaduan());
-                i.putExtra("tgl", eBeranda.getTglPengaduan());
-                i.putExtra("laporan", eBeranda.getIsiLaporan());
-                i.putExtra("nama",eBeranda.getNama());
-                i.putExtra("foto",eBeranda.getFoto());
-                mContext.startActivity(i);
-            }
-        });
     }
 
     @Override
@@ -101,7 +89,22 @@ public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.BerandaV
             nama = itemView.findViewById(R.id.namaB);
             status = itemView.findViewById(R.id.status);
             cardView = itemView.findViewById(R.id.cvBeranda);
-
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION){
+                        Intent i = new Intent(mContext, DetailBeranda.class);
+                        i.putExtra("id_pengaduan",berandaList.get(position).getIdPengaduan());
+                        i.putExtra("tgl_pengaduan", berandaList.get(position).getTglPengaduan());
+                        i.putExtra("isi_laporan", berandaList.get(position).getIsiLaporan());
+                        i.putExtra("foto",berandaList.get(position).getFoto());
+                        i.putExtra("status",berandaList.get(position).getStatus());
+                        i.putExtra("nama",berandaList.get(position).getNama());
+                        mContext.startActivity(i);
+                    }
+                }
+            });
 
 
 

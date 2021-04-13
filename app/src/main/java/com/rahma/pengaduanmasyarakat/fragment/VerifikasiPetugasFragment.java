@@ -1,6 +1,7 @@
 package com.rahma.pengaduanmasyarakat.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rahma.pengaduanmasyarakat.Adapter.SelesaiPetugasAdapter;
 import com.rahma.pengaduanmasyarakat.Adapter.VerifikasiPetugasAdapter;
+import com.rahma.pengaduanmasyarakat.FormTanggapan;
+import com.rahma.pengaduanmasyarakat.PetugasActivity;
 import com.rahma.pengaduanmasyarakat.R;
 import com.rahma.pengaduanmasyarakat.apihelper.BaseApiService;
 import com.rahma.pengaduanmasyarakat.apihelper.RetrofitClient;
@@ -61,6 +64,7 @@ public class VerifikasiPetugasFragment extends Fragment {
                 if (response.body().getData().isEmpty()){
                     tvGone.setVisibility(View.VISIBLE);
                 }
+
                 verifikasiPetugasAdapter = new VerifikasiPetugasAdapter(mContext,verifikasi);
                 rvSelesaiPetugas.setAdapter(verifikasiPetugasAdapter);
                 verifikasiPetugasAdapter.notifyDataSetChanged();

@@ -28,11 +28,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tanggal"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:layout_margin="2dp"
                     android:layout_marginLeft="5dp"
                     android:fontFamily="@font/poppins"
-                    android:textColor="@color/colorAccent"/>
+                    android:textColor="@color/colorAccent"
+                    android:layout_centerVertical="true"/>
 
                 <TextView
                     android:id="@+id/statuss"

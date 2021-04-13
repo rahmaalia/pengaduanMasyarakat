@@ -30,6 +30,7 @@ public class SelesaiAdapter extends RecyclerView.Adapter<SelesaiAdapter.SelesaiV
     Context mContext;
     CardView cardView;
 
+
     public SelesaiAdapter(Context mContext, List<E_Selesai> e_selesais){
         this.mContext = mContext;
         selesaiList = e_selesais;
@@ -48,6 +49,7 @@ public class SelesaiAdapter extends RecyclerView.Adapter<SelesaiAdapter.SelesaiV
         eSelesai = selesaiList.get(position);
         holder.tgl.setText(eSelesai.getTglPengaduan());
         holder.laporan.setText(eSelesai.getIsiLaporan());
+        holder.status.setText(eSelesai.getStatus());
         Bitmap setFoto=null;
         String foto;
         foto = eSelesai.getFoto();
@@ -58,17 +60,17 @@ public class SelesaiAdapter extends RecyclerView.Adapter<SelesaiAdapter.SelesaiV
             e.printStackTrace();
         }
         holder.fotoo.setImageBitmap(setFoto);
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(mContext, Detail_proses.class);
-                i.putExtra("id_pengaduan",eSelesai.getIdPengaduan());
-                i.putExtra("tgl_pengaduan", eSelesai.getTglPengaduan());
-                i.putExtra("isi_laporan", eSelesai.getIsiLaporan());
-                i.putExtra("foto",eSelesai.getFoto());
-                mContext.startActivity(i);
-            }
-        });
+//        holder.cardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(mContext, Detail_proses.class);
+//                i.putExtra("id_pengaduan",eSelesai.getIdPengaduan());
+//                i.putExtra("tgl_pengaduan", eSelesai.getTglPengaduan());
+//                i.putExtra("isi_laporan", eSelesai.getIsiLaporan());
+//                i.putExtra("foto",eSelesai.getFoto());
+//                mContext.startActivity(i);
+//            }
+//        });
     }
 
     @Override
@@ -77,7 +79,7 @@ public class SelesaiAdapter extends RecyclerView.Adapter<SelesaiAdapter.SelesaiV
     }
 
     public class SelesaiViewHolder extends RecyclerView.ViewHolder {
-        public final TextView tgl, laporan;
+        public final TextView tgl, laporan, status;
         ImageView fotoo;
         CardView cardView;
         public SelesaiViewHolder(@NonNull View itemView) {
@@ -85,8 +87,23 @@ public class SelesaiAdapter extends RecyclerView.Adapter<SelesaiAdapter.SelesaiV
             tgl = itemView.findViewById(R.id.tgl);
             laporan = itemView.findViewById(R.id.tv_detail);
             fotoo = itemView.findViewById(R.id.imageL);
+            status = itemView.findViewById(R.id.statuss);
             cardView = itemView.findViewById(R.id.cvLaporan);
-
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION){
+                        Intent i = new Intent(mContext, Detail_proses.class);
+                        i.putExtra("id_pengaduan",selesaiList.get(position).getIdPengaduan());
+                        i.putExtra("tgl_pengaduan", selesaiList.get(position).getTglPengaduan());
+                        i.putExtra("isi_laporan", selesaiList.get(position).getIsiLaporan());
+                        i.putExtra("foto",selesaiList.get(position).getFoto());
+                        i.putExtra("status",selesaiList.get(position).getStatus());
+                        mContext.startActivity(i);
+                    }
+                }
+            });
         }
     }
 }

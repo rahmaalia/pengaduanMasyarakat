@@ -129,6 +129,9 @@ public class FormPengaduanActivity extends AppCompatActivity {
         if (laporan.length()==0) {
             Toast.makeText(mContext, "Isi laporan", Toast.LENGTH_LONG).show();
         }
+//        if(file == null){
+//            Toast.makeText(mContext, "tambah foto bukti", Toast.LENGTH_LONG).show();
+//        }
 
         if (laporan.length()>0){
             mApiService.inputLaporan(Date,
@@ -303,10 +306,15 @@ public class FormPengaduanActivity extends AppCompatActivity {
         int tahunn = c.get(Calendar.YEAR);
         int date = c.get(Calendar.DAY_OF_MONTH);
 
+        SimpleDateFormat jam = new SimpleDateFormat("HH:mm:ss");
+        Calendar datee =Calendar.getInstance();
+
         hari.setText(""+ harii + "," );
         bulan.setText(""+bulann );
         tahun.setText(""+tahunn );
         tanggal.setText("" +date);
+
+        Date = (""+date+" "+""+bulann+" "+""+tahunn+"  "+""+jam.format(datee.getTime()));
     }
 
 

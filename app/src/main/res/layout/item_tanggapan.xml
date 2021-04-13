@@ -30,6 +30,12 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/poppins"/>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </RelativeLayout>
+
             <TextView
                 android:id="@+id/tglTanggapan"
                 android:layout_width="match_parent"

@@ -66,18 +66,18 @@ public class ProsesAdapter extends RecyclerView.Adapter<ProsesAdapter.BarangView
             e.printStackTrace();
         }
         holder.fotoo.setImageBitmap(setFoto);
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(mContext, Detail_proses.class);
-                i.putExtra("id_pengaduan",ePengaduan.getIdPengaduan());
-                i.putExtra("tgl_pengaduan", ePengaduan.getTglPengaduan());
-                i.putExtra("isi_laporan", ePengaduan.getIsiLaporan());
-                i.putExtra("foto",ePengaduan.getFoto());
-                i.putExtra("status",ePengaduan.getStatus());
-                mContext.startActivity(i);
-            }
-        });
+//        holder.cardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(mContext, Detail_proses.class);
+//                i.putExtra("id_pengaduan",ePengaduan.getIdPengaduan());
+//                i.putExtra("tgl_pengaduan", ePengaduan.getTglPengaduan());
+//                i.putExtra("isi_laporan", ePengaduan.getIsiLaporan());
+//                i.putExtra("foto",ePengaduan.getFoto());
+//                i.putExtra("status",ePengaduan.getStatus());
+//                mContext.startActivity(i);
+//            }
+//        });
     }
 
     @Override
@@ -96,6 +96,21 @@ public class ProsesAdapter extends RecyclerView.Adapter<ProsesAdapter.BarangView
             fotoo = itemView.findViewById(R.id.imageL);
             cardView = itemView.findViewById(R.id.cvLaporan);
             status = itemView.findViewById(R.id.statuss);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION){
+                        Intent i = new Intent(mContext, Detail_proses.class);
+                        i.putExtra("id_pengaduan",pengaduanList.get(position).getIdPengaduan());
+                        i.putExtra("tgl_pengaduan", pengaduanList.get(position).getTglPengaduan());
+                        i.putExtra("isi_laporan", pengaduanList.get(position).getIsiLaporan());
+                        i.putExtra("foto",pengaduanList.get(position).getFoto());
+                        i.putExtra("status",pengaduanList.get(position).getStatus());
+                        mContext.startActivity(i);
+                    }
+                }
+            });
         }
     }
 }
